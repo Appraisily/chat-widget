@@ -1,0 +1,50 @@
+User-agent: *
+Disallow: /wp-content/uploads/wpforms/
+
+# Allow all other paths
+Disallow:
+
+# Sitemaps
+Sitemap: https://resources.appraisily.com/sitemap_index.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Additional rules for specific bots
+User-agent: GPTBot
+Disallow: /private/
+Disallow: /admin/
+Disallow: /wp-admin/
+
+User-agent: ChatGPT-User
+Disallow: /private/
+Disallow: /admin/
+Disallow: /wp-admin/
+
+# Block common bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Allow Google bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Allow Bing bots
+User-agent: Bingbot
+Allow: /
+
+# Allow DuckDuckGo bot
+User-agent: DuckDuckBot
+Allow: /

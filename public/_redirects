@@ -1,0 +1,36 @@
+# ========================================
+# Redirects and Proxies for Appraisily.com
+# ========================================
+
+# 1. WordPress Content Redirects
+# ------------------------------------------
+
+# Redirect WordPress content to resources subdomain
+/wp-content/* https://resources.appraisily.com/wp-content/:splat 301!
+
+# Proxy all routes that begin with /posts/ to WordPress
+/posts/* https://resources.appraisily.com/posts/:splat 200
+
+# Proxy all routes that begin with /appraisals/ to WordPress
+/appraisals/* https://resources.appraisily.com/appraisals/:splat 200
+
+# Proxy all routes that begin with /success-payment/ to WordPress
+/success-payment/* https://resources.appraisily.com/success-payment/:splat 200
+
+# 2. WordPress Admin Redirects
+# ---------------------------------------
+
+# Redirect any access to /wp-admin/* to WordPress
+/wp-admin/* https://resources.appraisily.com/wp-admin/:splat 301!
+
+# 3. Subdomain Redirects
+# --------------------------------------------------------
+
+# Redirect www.resources to resources
+www.resources.appraisily.com/* https://resources.appraisily.com/:splat 301!
+
+# 4. SPA Fallback
+# --------------
+
+# Redirect all other routes to index.html for client-side routing
+/* /index.html 200
