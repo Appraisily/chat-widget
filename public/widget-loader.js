@@ -10,7 +10,7 @@
   js = d.createElement(s);
   js.id = id;
   js.async = true;
-  js.src = 'https://frolicking-macaron-54f908.netlify.app/assets/widget.iife.js';
+  js.src = 'https://frolicking-macaron-54f908.netlify.app/widget.js';
   
   if (fjs.parentNode) {
     fjs.parentNode.insertBefore(js, fjs);
