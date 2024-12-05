@@ -1,4 +1,4 @@
-import { WEBSOCKET_URL, HEARTBEAT_INTERVAL } from '../constants/websocket';
+import { WEBSOCKET_URL } from '../constants/websocket';
 import type { ConnectionState } from './types';
 
 export class SimpleWebSocket {
@@ -6,7 +6,6 @@ export class SimpleWebSocket {
   private clientId: string;
   private onStateChange: (state: ConnectionState) => void;
   private onMessage: (message: any) => void;
-  private lastPingTime: number = 0;
   private pingTimeout: NodeJS.Timeout | null = null;
   private isIntentionalClose: boolean = false;
   private INACTIVITY_TIMEOUT = 180000; // 180 seconds (3 minutes)
