@@ -15,14 +15,16 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, './src/widget/index.tsx'),
       name: 'AppraisilyChatWidget',
-      fileName: 'widget',
+      fileName: (format) => `widget.${format}`,
       formats: ['iife']
     },
     rollupOptions: {
       output: {
         extend: true,
         inlineDynamicImports: true,
-        manualChunks: undefined
+        manualChunks: undefined,
+        entryFileNames: 'widget.js',
+        assetFileNames: 'widget-[name].[ext]'
       },
       plugins: [
         terser({
