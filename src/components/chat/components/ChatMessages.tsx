@@ -54,12 +54,10 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
         const isUserMessage = message.clientId === clientId;
         const isSystemMessage = message.type === 'system';
         
-        // Initialize default status
-        const messageStatus = {
-          sent: true,
+        const messageStatus = message.status || {
+          sent: false,
           received: false,
-          processed: false,
-          ...message.status
+          processed: false
         };
         
         if (isSystemMessage) {

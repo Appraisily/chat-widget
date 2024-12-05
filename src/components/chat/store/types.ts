@@ -11,7 +11,7 @@ export interface Message {
   clientId?: string;
   images?: string[];
   imageStatuses?: ImageStatus[];
-  status: {
+  status?: {
     sent: boolean;
     received: boolean;
     processed: boolean;
