@@ -54,6 +54,14 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
         const isUserMessage = message.clientId === clientId;
         const isSystemMessage = message.type === 'system';
         
+        // Initialize default status
+        const messageStatus = {
+          sent: true,
+          received: false,
+          processed: false,
+          ...message.status
+        };
+        
         if (isSystemMessage) {
           return (
             <div key={message.id} className="flex justify-center">
@@ -63,12 +71,6 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
             </div>
           );
         }
-        
-        const messageStatus = message.status || {
-          sent: true,
-          received: false,
-          processed: false
-        };
         
         return (
           <div
