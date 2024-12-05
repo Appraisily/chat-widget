@@ -64,6 +64,12 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
           );
         }
         
+        const messageStatus = message.status || {
+          sent: true,
+          received: false,
+          processed: false
+        };
+        
         return (
           <div
             key={message.id}
@@ -122,9 +128,9 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
                 ))}
               </div>
 
-              {isUserMessage && message.status && (
+              {isUserMessage && (
                 <MessageStatus 
-                  status={message.status} 
+                  status={messageStatus}
                   className="absolute -bottom-4 right-1"
                 />
               )}

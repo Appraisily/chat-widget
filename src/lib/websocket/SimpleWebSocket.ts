@@ -6,7 +6,6 @@ export class SimpleWebSocket {
   private clientId: string;
   private onStateChange: (state: ConnectionState) => void;
   private onMessage: (message: any) => void;
-  private lastPingTime: number = 0;
   private pingTimeout: NodeJS.Timeout | null = null;
   private isIntentionalClose: boolean = false;
   private INACTIVITY_TIMEOUT = 180000; // 180 seconds (3 minutes)
@@ -184,8 +183,6 @@ export class SimpleWebSocket {
   };
 
   private handlePing = () => {
-    this.lastPingTime = Date.now();
-    
     const pongMessage = {
       type: 'pong',
       clientId: this.clientId,

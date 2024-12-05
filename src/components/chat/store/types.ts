@@ -11,10 +11,10 @@ export interface Message {
   clientId?: string;
   images?: string[];
   imageStatuses?: ImageStatus[];
-  status?: {
-    sent?: boolean;
-    received?: boolean;
-    processed?: boolean;
+  status: {
+    sent: boolean;
+    received: boolean;
+    processed: boolean;
   };
 }
 
