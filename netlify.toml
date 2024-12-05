@@ -6,7 +6,7 @@
 # Serve widget.js directly
 [[redirects]]
   from = "/widget.js"
-  to = "/assets/widget.iife.js"
+  to = "/assets/widget.js"
   status = 200
   force = true
 

@@ -13,7 +13,7 @@
   js = d.createElement(s);
   js.id = id;
   js.async = true;
-  js.src = window.location.origin + '/widget.js';
+  js.src = window.location.origin + '/assets/widget.js';
   console.log('🔗 Loading widget from:', js.src);
   
   if (fjs.parentNode) {
