@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChatWidget } from '@/components/chat';
 
 export default function App() {

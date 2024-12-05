@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ImageKitProps {
   src: string;
   alt: string;
