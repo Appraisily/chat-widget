@@ -54,11 +54,7 @@ export function ChatMessages({ messages, clientId, isTyping, assistantImage }: C
         const isUserMessage = message.clientId === clientId;
         const isSystemMessage = message.type === 'system';
         
-        const messageStatus = message.status || {
-          sent: false,
-          received: false,
-          processed: false
-        };
+        const messageStatus = message.status;
         
         if (isSystemMessage) {
           return (
