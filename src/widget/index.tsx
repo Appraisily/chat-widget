@@ -14,6 +14,7 @@ declare global {
 interface WidgetConfig {
   position?: 'bottom-right' | 'bottom-left';
   primaryColor?: string;
+  containerId?: string;
 }
 
 class Widget {
@@ -21,7 +22,8 @@ class Widget {
   private root: ReturnType<typeof createRoot> | null = null;
   private config: WidgetConfig = {
     position: 'bottom-right',
-    primaryColor: '#007bff'
+    primaryColor: '#007bff',
+    containerId: 'appraisily-chat-widget-container'
   };
 
   init = (config?: WidgetConfig) => {
@@ -33,15 +35,18 @@ class Widget {
     // Merge configurations
     this.config = { ...this.config, ...config };
 
-    // Create container
-    this.container = document.createElement('div');
-    this.container.id = 'appraisily-chat-widget';
-    document.body.appendChild(this.container);
+    // Use existing container or create new one
+    this.container = document.getElementById(this.config.containerId || '') || 
+      document.createElement('div');
+    
+    if (!this.container.parentNode) {
+      document.body.appendChild(this.container);
+    }
 
     // Create style element
     const style = document.createElement('style');
     style.textContent = `
-      #appraisily-chat-widget {
+      #${this.container.id} {
         position: fixed;
         z-index: 2147483647;
         ${this.config.position === 'bottom-right' ? 'right: 20px;' : 'left: 20px;'}
@@ -49,7 +54,7 @@ class Widget {
       }
 
       @media (max-width: 768px) {
-        #appraisily-chat-widget {
+        #${this.container.id} {
           right: 10px;
           bottom: 10px;
         }
