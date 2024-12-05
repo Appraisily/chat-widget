@@ -12,9 +12,9 @@ export interface Message {
   images?: string[];
   imageStatuses?: ImageStatus[];
   status?: {
-    sent: boolean;
-    received: boolean;
-    processed: boolean;
+    sent?: boolean;
+    received?: boolean;
+    processed?: boolean;
   };
 }
 
