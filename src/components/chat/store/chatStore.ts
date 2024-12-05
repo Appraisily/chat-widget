@@ -126,7 +126,15 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   addMessage: async (message: Message) => {
     try {
       const currentMessages = get().messages;
-      const updatedMessages = [...currentMessages, message];
+      const updatedMessages = [...currentMessages, {
+        ...message,
+        status: {
+          sent: true,
+          received: false,
+          processed: false,
+          ...message.status
+        }
+      }];
       set({ messages: updatedMessages });
       await idbSet(MESSAGES_KEY, updatedMessages);
     } catch (error) {
